@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us | {{ block.super }}{% endblock %}
+{% block content %}
+  <div class="container my-5">
+    <div class="row mb-5">
+      <div class="col-md-8 mx-auto text-center">
+        <h1 class="fw-bold">Get In Touch</h1>
+        <p class="text-secondary">Have questions? We're here to help. Reach out to us through any of the channels below.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h5 class="card-title fw-bold mb-4">Contact Information</h5>
+            <div class="mb-4">
+              <p class="mb-1 text-primary fw-semibold">Email Addresses</p>
+              <p class="mb-0">info@zach.org.zw</p>
+              <p class="mb-0">zwangobanin@zach.org.zw</p>
+            </div>
+            <div class="mb-4">
+              <p class="mb-1 text-primary fw-semibold">Phone Numbers</p>
+              <p class="mb-0">+263 24 2312434/5</p>
+              <p class="mb-0">+263 242 702065</p>
+            </div>
+            <div class="mb-4">
+              <p class="mb-1 text-primary fw-semibold">Office Location</p>
+              <p class="mb-0">244 Rosedale Road</p>
+              <p class="mb-0">Marlborough, Harare</p>
+              <p class="mb-0">Zimbabwe</p>
+            </div>
+            <div class="mb-4">
+              <p class="mb-1 text-primary fw-semibold">Data Protection Officer</p>
+              <p class="text-secondary">For queries pertaining personal data protection.</p>
+              <p class="mb-0">dpo@zach.org.zw</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="shadow-sm rounded overflow-hidden" style="height: 450px;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3799.6368822220925!2d30.991763100000004!3d-17.761740699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1931a5a9baa9727d%3A0x264dda00997a2f90!2sZACH%20%E2%80%93%20Zimbabwe%20Association%20of%20Church-Related%20Hospitals!5e0!3m2!1sen!2szw!4v1770199437779!5m2!1sen!2szw"
+                  width="100%"
+                  height="100%"
+                  style="border:0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

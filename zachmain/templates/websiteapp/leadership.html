@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container py-5">
+    <h1 class="text-center mb-5 display-4 fw-bold">Our Organisation Structure & Leadership</h1>
+    <div class="organogram-container">
+      <div class="organogram-level">
+        <div class="row justify-content-center">
+          {% for person in zhod %}
+            <div class="col-auto text-center node">
+              {% if person.photo %}<img src="{{ person.photo.url }}" class="leader-img border-primary" alt="{{ person.name }}"/>{% else %}<div class="leader-img border-primary d-inline-flex align-items-center justify-content-center bg-light"><i class="bi bi-person fs-1 text-secondary"></i></div>{% endif %}
+              <h5 class="mt-2">{{ person.name }}</h5>
+              <p class="text-muted small">{{ person.get_role_display }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="organogram-level">
+        <div class="row justify-content-center">
+          {% for person in chair %}
+            <div class="col-auto text-center node">
+              {% if person.photo %}<img src="{{ person.photo.url }}" class="leader-img border-secondary" alt="{{ person.name }}"/>{% else %}<div class="leader-img border-secondary d-inline-flex align-items-center justify-content-center bg-light"><i class="bi bi-person fs-1 text-secondary"></i></div>{% endif %}
+              <h5>{{ person.name }}</h5>
+              <p class="text-muted small">{{ person.get_role_display }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="organogram-level">
+        <div class="row justify-content-center">
+          {% for person in board %}
+            <div class="col-auto text-center node">
+              {% if person.photo %}<img src="{{ person.photo.url }}" class="leader-img border-secondary" alt="{{ person.name }}"/>{% else %}<div class="leader-img border-secondary d-inline-flex align-items-center justify-content-center bg-light"><i class="bi bi-person fs-1 text-secondary"></i></div>{% endif %}
+              <h5>{{ person.name }}</h5>
+              <p class="text-muted small">{{ person.get_role_display }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="organogram-level">
+        <div class="row justify-content-center">
+          {% for person in ed %}
+            <div class="col-auto text-center node">
+              {% if person.photo %}<img src="{{ person.photo.url }}" class="leader-img border-dark" alt="{{ person.name }}" />{% else %}<div class="leader-img border-dark d-inline-flex align-items-center justify-content-center bg-light"><i class="bi bi-person fs-1 text-secondary"></i></div>{% endif %}
+              <h5>{{ person.name }}</h5>
+              <p class="text-muted small">{{ person.get_role_display }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="organogram-level">
+        <div class="row justify-content-center">
+          {% for person in managers %}
+            <div class="col-md-3 text-center node">
+              {% if person.photo %}<img src="{{ person.photo.url }}" class="leader-img border-light" alt="{{ person.name }}"/>{% else %}<div class="leader-img border-light d-inline-flex align-items-center justify-content-center bg-light"><i class="bi bi-person fs-1 text-secondary"></i></div>{% endif %}
+              <h6>{{ person.name }}</h6>
+              <p class="text-muted small">{{ person.get_role_display }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

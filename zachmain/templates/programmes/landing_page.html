@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div id="hero"
+       class="position-relative d-flex justify-content-center align-items-center"
+       style="height: 60vh">
+    <!-- NOTE: 'bg-img' class likely requires custom CSS not included in the file for positioning/sizing -->
+    <img class="bg-img"
+         src="{% static 'images/IMG_0188.jpg' %}"
+         alt="Programme Hero Image" />
+    <div id="parallax-card"
+         class="position-absolute bg-dark text-white text-center p-5 rounded-4 shadow"
+         style="width: 80%;
+                max-width: 900px;
+                bottom: -120px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 10">
+      <h1 class="display-3 fw-bolder">Our Programmes</h1>
+      <p>
+        Our programmes are rooted in our Christian faith and a commitment to compassionate, holistic care.
+        Through our network of church-affiliated hospitals, we deliver healthcare services that promote healing,
+        dignity, and hope. We work to strengthen communities, support vulnerable families, and extend Christ-centered
+        care to those who need it most.
+      </p>
+    </div>
+  </div>
+  <!-- spacer to push content down below the parallax card -->
+  <div style="height: 120px;"></div>
+  <div class="container my-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for programme in programmes %}
+        <div class="col">
+          <div class="card h-100 custom-card">
+            <!-- Programme Image -->
+            {% if programme.photo %}
+              <img src="{{ programme.photo.url }}"
+                   class="card-img-top custom-img"
+                   alt="{{ programme.name }} image" />
+            {% else %}
+              <!-- Placeholder image if no photo is uploaded (ensure you have a placeholder.jpg in your static/images folder) -->
+              <img src="{% static 'images/zachlogoblack.png' %}"
+                   class="card-img-top custom-img"
+                   alt="Placeholder image for {{ programme.name }}" />
+            {% endif %}
+            <div class="card-img-overlay d-flex flex-column justify-content-end p-0">
+              <div class="card-text-overlay p-3 bg-black bg-opacity-50 w-100">
+                <!-- Link the Programme Name to the Detail View -->
+                <a href="{% url 'programmes:detail' pk=programme.pk %}"
+                   class="text-decoration-none">
+                  <p class="mb-0 text-white fw-bold fs-6">{{ programme.name }}</p>
+                </a>
+                <!-- Active Status Indicator -->
+                {% if programme.is_active %}
+                  <span class="badge bg-success">Active</span>
+                {% else %}
+                  <span class="badge bg-danger">Inactive</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <div class="col-12">
+          <div class="alert alert-info text-center" role="alert">
+            We currently don't have any programmes running but you can still access healthcare services from our member institutions.
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}

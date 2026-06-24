@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div class="container my-5">
+    <h1 class="mb-4 display-4 fw-bold">ZACH Membership Directory</h1>
+    
+    <form method="GET" action="{% url 'membership:list' %}" class="mb-5">
+      <div class="input-group input-group-lg shadow-lg rounded-pill overflow-hidden">
+        <input type="text"
+               name="q"
+               class="form-control border-0 py-3 ps-4"
+               placeholder="Search by name, address, or phone..."
+               aria-label="Search members"
+               value="{{ query|default_if_none:'' }}" />
+        <button class="btn btn px-4" type="submit">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               width="20"
+               height="20"
+               fill="currentColor"
+               class="bi bi-search"
+               viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.098zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+          </svg>
+        </button>
+      </div>
+    </form>
+
+    {% if members %}
+      <div class="table-responsive shadow-lg rounded-3 overflow-hidden">
+        <table class="table table-hover mb-0">
+          <thead class="bg-light">
+            <tr>
+              <th scope="col">Name / Address</th>
+              <th scope="col" class="d-none d-md-table-cell">Phone</th>
+              <th scope="col" class="d-none d-xl-table-cell">Website</th>
+              <th scope="col" class="d-none d-lg-table-cell">Beds</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for member in members %}
+              <tr class="align-middle">
+                <td>
+                  <strong class="text-dark">{{ member.name }}</strong>
+                  <br />
+                  <small class="text-muted d-block">{{ member.address|truncatechars:40 }}</small>
+                </td>
+                <td class="d-none d-md-table-cell">{{ member.phone }}</td>
+                
+                <td class="d-none d-xl-table-cell">
+                  {% if member.website %}
+                    <a href="{{ member.website }}" target="_blank" rel="noopener noreferrer" class="text-decoration-none d-flex align-items-center text-primary">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe2 me-2" viewBox="0 0 16 16">
+                        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855q-.215.403-.395.872c.783.093 1.61.15 2.282.15zM4.29 3.244q.21-.462.45-.884a7 7 0 0 0-1.556 1.157c.338.41.688.89 1.106 1.405l.001-.001c.243-.284.477-.522.684-.71l.001-.001c.142-.13.26-.231.353-.31l.001-.001a1.5 1.5 0 0 0-.04-.656M2.384 5.11a7 7 0 0 0-.528 3.89c.417-.113.916-.232 1.487-.34a12 12 0 0 1 .369-2.008c-.463-.64-.89-1.185-1.328-1.542M3.82 9.271c-.84.14-1.532.226-2.062.269a7 7 0 0 0 1.253 2.903c.517-.517 1.139-1.312 1.638-2.316l-.829-.856zm3.125 2.324a10 10 0 0 1-1.332-1.74l-.018-.039q-.147-.317-.282-.633c-1.63.194-3.053.903-4.01 1.765a7 7 0 0 0 2.222 1.838c.633-.146 1.343-.376 2.066-.665l-.014-.04c.038-.076.088-.16.14-.24q.108-.168.228-.25zm1.554 1.482c.15-.365.293-.761.417-1.173a14 14 0 0 1-2.282.15c.123.412.266.808.417 1.173q.34.823.724 1.055a1.5 1.5 0 0 0 .724-1.055"/>
+                      </svg>
+                      Visit site
+                    </a>
+                  {% else %}
+                    <span class="text-muted small">N/A</span>
+                  {% endif %}
+                </td>
+
+                <td class="d-none d-lg-table-cell">
+                  <span class="badge bg-secondary-subtle text-secondary fw-normal">{{ member.get_bed_band_display }}</span>
+                </td>
+                <td>
+                  {% if member.is_active %}
+                    <span class="badge bg-success-subtle text-success p-2">Active</span>
+                  {% else %}
+                    <span class="badge bg-danger-subtle text-danger p-2">Inactive</span>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="alert alert-info text-center shadow-sm" role="alert">
+        {% if query %}
+          No members found matching "{{ query }}".
+        {% else %}
+          No members have been added yet.
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock content %}

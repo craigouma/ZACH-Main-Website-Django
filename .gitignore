@@ -1,0 +1,38 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments — the server creates its own
+.venv/
+
+# Secrets — NEVER commit the real .env
+.env
+
+# OS / editor artefacts
+.DS_Store
+desktop.ini
+*.swp
+*.swo
+Thumbs.db
+
+# Python version pin (server may differ)
+.python-version
+
+# Dev-only logs and scratch files
+scratch_runserver.log
+tmp/
+
+# ---------------------------------------------------------------------------
+# The following are intentionally NOT ignored (they MUST be committed for the
+# cPanel shared-hosting deployment, where we cannot easily run management
+# commands on the server):
+#   db.sqlite3        - contains all site content
+#   staticfiles/      - collected static assets (collectstatic output)
+#   zachmain/media/   - gallery images, programme photos, etc.
+#   requirements.txt  - needed for pip install on the server
+#   .env.example      - safe template, no real secrets
+# ---------------------------------------------------------------------------

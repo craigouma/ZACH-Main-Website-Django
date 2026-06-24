@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div class="container-fluid my-5" style="max-width: 900px;">
+    <!-- Back Button and Status Badge -->
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+      <a href="{% url 'programmes:programmes_page' %}"
+         class="text-decoration-none d-flex align-items-center text-primary fw-bold">
+        <!-- Bootstrap Icon equivalent for a back arrow -->
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="20"
+             height="20"
+             fill="currentColor"
+             class="bi bi-arrow-left-short me-1"
+             viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
+        </svg>
+        Back to Programmes List
+      </a>
+      {% if programme.is_active %}
+        <span class="badge rounded-pill bg-success p-2 shadow-sm">Programme Active</span>
+      {% else %}
+        <span class="badge rounded-pill bg-danger p-2 shadow-sm">Programme Inactive</span>
+      {% endif %}
+    </div>
+    <!-- Main Programme Card -->
+    <div class="card shadow-lg border-0 rounded-4 overflow-hidden mb-5">
+      <!-- Programme Photo Hero -->
+      {% if programme.photo %}
+        <div class="position-relative" style="height: 400px; overflow: hidden;">
+          <img class="card-img-top w-100 h-100"
+               style="object-fit: cover"
+               src="{{ programme.photo.url }}"
+               alt="{{ programme.name }} Photo" />
+          <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 d-flex align-items-end p-4">
+            <h1 class="display-4 fw-bolder text-white">{{ programme.name }}</h1>
+          </div>
+        </div>
+      {% else %}
+        <div class="p-5 bg-secondary">
+          <h1 class="display-5 fw-bolder text-white">{{ programme.name }}</h1>
+        </div>
+      {% endif %}
+      <!-- Full Description Content -->
+      <div class="card-body p-5">
+        <h2 class="h3 fw-bold mb-4 border-bottom pb-2 text-dark">Full Programme Details</h2>
+        <div class="text-body-secondary ck-content fs-6">
+          <!-- IMPORTANT: Use |safe to render any HTML/rich text from the TextField -->
+          <!-- Note: Rich text (from CKEditor/TinyMCE) will retain its bold/underline formatting here -->
+          {{ programme.description|safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

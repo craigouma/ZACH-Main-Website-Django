@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div id="hero"
+       class="position-relative d-flex justify-content-center align-items-center"
+       style="height: 60vh">
+    <img class="bg-img" src="{% static 'images/nappy.jpg' %}" alt="img" />
+    <div id="parallax-card"
+         class="position-absolute bg-dark text-white text-center p-5 rounded-4 shadow"
+         style="width: 80%;
+                max-width: 900px;
+                bottom: -120px;
+                left: 50%">
+      <h2 class="display-3 fw-bolder">Our Mission</h2>
+      <p>
+        Following the example of our Lord Jesus Christ, ZACH adopts the holistic approach to health
+        and healing, encompassing principles of equity, quality, and accessibility. ZACH promotes the
+        highest standard of health care among its members for the benefit of all people in Zimbabwe.
+      </p>
+    </div>
+  </div>
+  <!-- spacer -->
+  <div style="height: 120px;"></div>
+  <div class="mt-5"
+       style="background-image: url('{% static 'images/health.jpg' %}');
+              background-size: cover;
+              background-position: center 65%;
+              background-attachment: fixed;
+              height: 300px;
+              z-index: -1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          <div class="d-flex justify-content-center my-5">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <!-- Front of the card -->
+                <div class="flip-card-front d-flex justify-content-center align-items-center bg-dark text-white p-5 rounded-4 shadow">
+                  <h3 class="text-center">Our Vision</h3>
+                </div>
+                <!-- Back of the card -->
+                <div class="flip-card-back d-flex justify-content-center align-items-center bg-dark text-white p-5 rounded-4 shadow">
+                  <p class="text-center">
+                    ZACH envisages a healthy society in which all people in
+                    Zimbabwe have access to sustainable high quality, holistic health care delivery.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="d-flex justify-content-center my-5">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <!-- Front of the card -->
+                <div class="flip-card-front d-flex justify-content-center align-items-center bg-dark text-white p-5 rounded-4 shadow">
+                  <h3 class="text-center">Our Values</h3>
+                </div>
+                <!-- Back of the card -->
+                <div class="flip-card-back d-flex justify-content-center align-items-center bg-dark text-white p-5 rounded-4 shadow">
+                  <ul class="p-5">
+                    <li>Sustainability</li>
+                    <li>Transparency</li>
+                    <li>Accountability</li>
+                    <li>Responsive</li>
+                    <li>Christianity</li>
+                    <li>Accessibility</li>
+                    <li>Professionalism</li>
+                    <li>Equity</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="d-flex justify-content-center my-5">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <!-- Front of the card -->
+                <div class="flip-card-front d-flex justify-content-center align-items-center bg-dark text-white p-5 rounded-4 shadow">
+                  <h3 class="text-center">Our Moto</h3>
+                </div>
+                <!-- Back of the card -->
+                <div class="flip-card-back d-flex justify-content-center align-items-center bg-dark text-white p-5 rounded-4 shadow">
+                  <p class="text-center">Preach, Teach and Heal</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container text-center mt-5 mb-5">
+    <h2 class="display-5 fw-bold mt-4">Our Core Values</h2>
+    <p class="lead text-secondary mb-4">STARCAPE</p>
+    <div class="row justify-content-center g-3">
+      <div class="col-6 col-md-3"><span class="fw-bold text-primary">S</span> — Sustainability</div>
+      <div class="col-6 col-md-3"><span class="fw-bold text-primary">T</span> — Transparency</div>
+      <div class="col-6 col-md-3"><span class="fw-bold text-primary">A</span> — Accountability</div>
+      <div class="col-6 col-md-3"><span class="fw-bold text-primary">R</span> — Responsive</div>
+      <div class="col-6 col-md-3"><span class="fw-bold text-primary">C</span> — Christianity</div>
+      <div class="col-6 col-md-3"><span class="fw-bold text-primary">A</span> — Accessibility</div>
+      <div class="col-6 col-md-3"><span class="fw-bold text-primary">P</span> — Professionalism</div>
+      <div class="col-6 col-md-3"><span class="fw-bold text-primary">E</span> — Equity</div>
+    </div>
+  </div>
+  <div class="container rounded text-center mt-5 mb-5 bg-dark text-white">
+    <br />
+    <h4 class="display-6 fw-bold mt-4">ZACH Mandate</h4>
+    <p class="mt-4 mb-4">
+      To assist and support member institutions in the provision of Quality Health Care Delivery to all Zimbabweans,
+      especially to the poorest, vulnerable, and marginalized groups in society.
+    </p>
+    <h2 class="display-5 fw-bold mt-2">Our Belief and Faith</h2>
+    <p class="mt-4 mb-4">
+      ZACH belief and faith comes from the teaching of our Lord Jesus Christ and is ecumenical coming from a range of
+      Christian denominations and other faith sector actors hence our operational culture. Our belief is alleviating
+      suffer and lives using the Holistic Approach to health and healing for the   well-being of nations as well as
+      capacitating and strengthening communities in addressing their vulnerabilities, Matthew “21:22″ And whatever you
+      ask in prayer, you will receive, if you have faith”, and giving hope.
+    </p>
+    <br />
+  </div>
+{% endblock %}

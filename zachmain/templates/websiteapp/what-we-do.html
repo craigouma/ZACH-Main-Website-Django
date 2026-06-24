@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div id="hero"
+       class="position-relative d-flex justify-content-center align-items-center"
+       style="height: 60vh">
+    <img class="bg-img" src="{% static 'images/nappy.jpg' %}" alt="img" />
+    <div id="parallax-card"
+         class="position-absolute bg-dark text-white text-center p-5 rounded-4 shadow"
+         style="width: 80%;
+                max-width: 900px;
+                bottom: -120px;
+                left: 50%">
+      <h2 class="display-3 fw-bolder">What we do</h2>
+      <p>
+        Because mission hospitals and clinics are located close to the communities they serve,
+        and guided by the teachings of our Lord Jesus Christ to care for the poor, vulnerable,
+        and marginalized, our health model prioritizes Primary Health Care. This approach ensures
+        that essential services reach rural and remote populations effectively.
+      </p>
+    </div>
+  </div>
+  <!-- spacer -->
+  <div style="height: 120px;"></div>
+  <div class="container rounded text-center mt-5 mb-5 bg-dark text-white">
+    <br />
+    <h4 class="display-6 fw-bold mt-4">ZACH’s APPROACH TO HEALTH CARE</h4>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="mt-4 mb-4">
+          Our model is people centred and holistic, encompassing the principles of equity,
+          quality, accessibility and affordability, with Mission health facilities being accountable at subnational
+          levels for program implementation in line with MOHCC objectives. Mission Hospitals and clinics in Zimbabwe
+          contribute 68% health care delivery in rural Zimbabwe and 45% nationally. Most mission hospitals and clinics
+          are in remote and hard-to-reach areas and provide services to underserved, marginalized and vulnerable communities.
+        </p>
+        <p>
+          The approach also encourages community ownerships to access health care. Faith Based Organizations and leadership
+          structures also assist to promote health seeking  behaviours as they are trusted by communities, hence providing
+          the critical support for projects and programs acceptability and  successes for  comprehensive and  holistic
+          well-being  of the nation  and strengthening communities in addressing their vulnerabilities.
+        </p>
+        <p>
+          The last diagram on the right illustrates the processes of primary health care access. Hence the need to revisit
+          Primary Health Care for sector improvement, economic growth and sustainability.
+        </p>
+        <br />
+        <p>
+          Twenty two (22) Hospitals are designated district hospitals and provide national training for Primary Care Nurses and
+          Upskilling to Midwives , State Registered Nurses and Midwives. The output of these cadres contribute to the national workforce.
+          Mission hospitals also provide community medical and rural attachment for Government Medical Officers trainees from the
+          University of Zimbabwe school of Medicines.
+        </p>
+        <br />
+      </div>
+      <div class="col-md-6">
+        <br />
+        {% include "websiteapp/partials/zach_map.html" %}
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h4 class="display-6 fw-bold mt-4 text-center mb-2">Services we provide</h4>
+    <div class="row">
+      <div class="col">
+        <ul>
+          <li>Out Patient Department</li>
+          <li>Admissions wards</li>
+          <li>Maternity services</li>
+          <li>Family and Child Health clinic</li>
+          <li>Opportunistic infections clinic</li>
+          <li>School of nursing</li>
+          <li>Rehabilitation</li>
+          <li>Opthamology</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li>Infection control</li>
+          <li>Laboratory services</li>
+          <li>Pharmaceutical services</li>
+          <li>Visual Inspection with Acetic Acid and Cervicography</li>
+          <li>Operational Theatre</li>
+          <li>Voluntary Medical Male Circumcision</li>
+          <li>X-Ray</li>
+          <li>Dental Services</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}

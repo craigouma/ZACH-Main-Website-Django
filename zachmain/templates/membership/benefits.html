@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5">
+
+    <!-- Header Section -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold" style="color: #683566;">ZACH's Membership Benefits</h1>
+        <p class="lead" style="color: #000;">
+            Discover the value of your institution gains by becoming a member.
+        </p>
+    </div>
+
+    <!-- Benefits Section -->
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <div class="card border-0 shadow-sm mb-4" style="border-left: 6px solid #683566;">
+                <div class="card-body">
+                    <h5 class="fw-bold" style="color: #683566;">Capacity Building & Development</h5>
+                    <p style="color: #000;">
+                        Access workshops, training programmes, and resources aimed at strengthening institutional capabilities.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm mb-4" style="border-left: 6px solid #683566;">
+                <div class="card-body">
+                    <h5 class="fw-bold" style="color: #683566;">Christian Networking</h5>
+                    <p style="color: #000;">
+                        Connect with mission hospitals, faith-based organisations, and partners locally and internationally.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm mb-4" style="border-left: 6px solid #683566;">
+                <div class="card-body">
+                    <h5 class="fw-bold" style="color: #683566;">Rebate Support</h5>
+                    <p style="color: #000;">
+                        Assistance with rebates processes for imported goods, in line with country protocols.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm mb-4" style="border-left: 6px solid #683566;">
+                <div class="card-body">
+                    <h5 class="fw-bold" style="color: #683566;">Institution Visibility</h5>
+                    <p style="color: #000;">
+                        Increase your organisation’s visibility through our website, events, and publications.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm mb-4" style="border-left: 6px solid #683566;">
+                <div class="card-body">
+                    <h5 class="fw-bold" style="color: #683566;">Recruitment Assistance</h5>
+                    <p style="color: #000;">
+                        Recruitment of expatriate medical professionals on behalf of member hospitals.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm mb-4" style="border-left: 6px solid #683566;">
+                <div class="card-body">
+                    <h5 class="fw-bold" style="color: #683566;">Temporary Employment Permits </h5>
+                    <p style="color: #000;">
+                        We provide efficient and compliant temporary employment permit services, ensuring smooth application 
+                        processing and seamless workforce mobility for organizations and professionals.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm mb-4" style="border-left: 6px solid #683566;">
+                <div class="card-body">
+                    <h5 class="fw-bold" style="color: #683566;">Pensions Administration </h5>
+                    <p style="color: #000;">
+                        We deliver accurate and compliant pensions administration services that ensure efficient 
+                        fund management, timely processing, and dependable support for members and stakeholders.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm mb-4" style="border-left: 6px solid #683566;">
+                <div class="card-body">
+                    <h5 class="fw-bold" style="color: #683566;">Administrative Support  </h5>
+                    <p style="color: #000;">
+                        We provide professional, reliable administrative support that streamlines operations,
+                         enhances efficiency, and allows healthcare teams to focus fully on delivering quality patient care.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card border-0 shadow-sm mb-4" style="border-left: 6px solid #683566;">
+                <div class="card-body">
+                    <h5 class="fw-bold" style="color: #683566;">Job Advertising & Promotion Support</h5>
+                    <p style="color: #000;">
+                        We help advertise and fill promotional posts in mission hospitals.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm mb-4" style="border-left: 6px solid #683566;">
+                <div class="card-body">
+                    <h5 class="fw-bold" style="color: #683566;">Consignment Clearance</h5>
+                    <p style="color: #000;">
+                        Assistance with clearance of medical consignments on behalf of hospitals.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm mb-4" style="border-left: 6px solid #683566;">
+                <div class="card-body">
+                    <h5 class="fw-bold" style="color: #683566;">Donations Support</h5>
+                    <p style="color: #000;">
+                        Facilitation of donations including medical equipment and medicines for mission hospitals.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-5">
+        <a href="{% url 'membership:how-to-join' %}"
+           class="btn btn-lg px-4"
+           style="background-color: #683566; color: #fff; border-radius: 8px;">
+            Become a Member
+        </a>
+    </div>
+
+</div>
+{% endblock %}

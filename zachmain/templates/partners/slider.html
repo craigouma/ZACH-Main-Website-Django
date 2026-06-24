@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <style>
+    /* Slider Wrapper */
+    .partner-slider {
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 2px solid #683566;
+      border-bottom: 2px solid #683566;
+      padding: 20px 0;
+      background: #f8f8f8;
+    }
+
+    /* Infinite Scroll Animation */
+    .partner-track {
+      display: inline-flex;
+      animation: scroll 20s linear infinite;
+      gap: 40px;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Partner Card */
+    .partner-card {
+      width: 150px;
+      border: none;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      transition: transform .3s ease;
+    }
+
+    .partner-card:hover {
+      transform: scale(1.05);
+    }
+
+    .partner-logo {
+      width: 100%;
+      height: 100px;
+      object-fit: contain;
+      padding: 10px;
+    }
+
+    .partner-logo-placeholder {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #e8d5e8;
+      color: #683566;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 8px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: normal;
+      hyphens: auto;
+      line-height: 1.3;
+    }
+
+    .partner-card {
+      overflow: hidden;
+    }
+  </style>
+  <div class="container py-5">
+    <h2 class="text-center fw-bold mb-4" style="color:#683566;">Our Partners</h2>
+    <div class="partner-slider">
+      <div class="partner-track">
+        {% for partner in partners %}
+          <a href="{{ partner.website }}"
+             target="_blank"
+             class="text-decoration-none">
+            <div class="card partner-card">
+              {% if partner.logo %}
+                <img src="{{ partner.logo.url }}"
+                     alt="{{ partner.name }}"
+                     class="partner-logo" />
+              {% else %}
+                <div class="partner-logo-placeholder">{{ partner.name }}</div>
+              {% endif %}
+              <div class="card-body text-center">
+                <h6 class="card-title" style="color:#683566;">{{ partner.name }}</h6>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+        {# Duplicate loop for infinite seamless scroll #}
+        {% for partner in partners %}
+          <a href="{{ partner.website }}"
+             target="_blank"
+             class="text-decoration-none">
+            <div class="card partner-card">
+              {% if partner.logo %}
+                <img src="{{ partner.logo.url }}"
+                     alt="{{ partner.name }}"
+                     class="partner-logo" />
+              {% else %}
+                <div class="partner-logo-placeholder">{{ partner.name }}</div>
+              {% endif %}
+              <div class="card-body text-center">
+                <h6 class="card-title" style="color:#683566;">{{ partner.name }}</h6>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}

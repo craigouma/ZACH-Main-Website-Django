@@ -1,0 +1,341 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+  <div id="headerCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active c-item">
+        <img src="{% static 'images/LEN.jpeg' %}"
+             class="d-block w-100 c-img"
+             alt="img" />
+        <div class="carousel-caption top-0 mt-5 d-none d-md-block">
+          <h1 class="display-1 text-capitalize fw-bolder mt-5">launch of lenacapavir</h1>
+          <p class="fs-3">
+          ZACH staff shares a lighter moment with  U.S. Centers for Disease Control and Prevention, Zimbabwe. HIV Services Branch Chief, 
+          Haddi Jatou Cham, during a tour of the ZACH stand at the launch of lenacapavir in Epworth.
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="{% static 'images/IMG_0166.jpg' %}"
+             class="d-block w-100 c-img"
+             alt="img" />
+        <div class="carousel-caption top-0 mt-5  d-none d-md-block">
+          <h1 class="display-1 text-capitalize fw-bolder mt-5">Serving Communities With Compassion</h1>
+          <p class="fs-3">
+           Strengthening church-related health institutions to deliver quality,
+            accessible, and Christ-centred healthcare across Zimbabwe.
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="{% static 'images/IMG_0224.jpg' %}"
+             class="d-block w-100 c-img"
+             alt="img" />
+        <div class="carousel-caption top-0 mt-5  d-none d-md-block">
+          <h1 class="display-1 text-capitalize fw-bolder mt-5">Empowering Health Workers for Impact</h1>
+          <p class="fs-3">
+            Building capacity through training, mentorship, and professional development to improve
+            service delivery in mission hospitals and clinics.
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="{% static 'images/GOGO.jpeg' %}"
+             class="d-block w-100 c-img"
+             alt="img" />
+        <div class="carousel-caption top-0 mt-5  d-none d-md-block">
+          <h1 class="display-1 text-capitalize fw-bolder mt-5">United in Faith. Committed to Health.</h1>
+          <p class="fs-3">
+            Working with partners, churches, and communities to enhance healthcare systems and
+            transform lives through collective action.
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="{% static 'images/APOSTOLIC.JPG' %}"
+             class="d-block w-100 c-img"
+             alt="img" />
+        <div class="carousel-caption top-0 mt-5  d-none d-md-block">
+          <h1 class="display-1 text-capitalize fw-bolder mt-5">HIV Awareness Community Dialogue</h1>
+          <p class="fs-3">
+            Engagement with Apostolic and Zionist leaders to bring awareness about HIV prevention,
+            treatment, care and other services
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item c-item">
+        <img src="{% static 'images/COVID.JPG' %}"
+             class="d-block w-100 c-img"
+             alt="img" />
+        <div class="carousel-caption top-0 mt-5  d-none d-md-block">
+          <h1 class="display-1 text-capitalize fw-bolder mt-5">Healthy Communities Start With Vaccination.</h1>
+          <p class="fs-3">
+            Ensuring everyone has access to safe and effective vaccines, protecting families and preventing the spread of disease. By vaccinating together,
+            we build stronger, safer, and more resilient communities.
+          </p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev"
+            type="button"
+            data-bs-target="#headerCarousel"
+            data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next"
+            type="button"
+            data-bs-target="#headerCarousel"
+            data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="container mt-2 mb-2">
+    <h1 class="display-4 fw-bolder text-center" style="color:#683566">Preach. Teach. Heal</h1>
+    <hr />
+  </div>
+  <div class="container mt-5 mb-5 stats-section">
+    <div class="row">
+      <div class="col-md">
+        <div class="card shadow zoom-card bg-dark text-white rounded-2">
+          <div class="card-body text-center">
+            <h2 class="display-4 fw-bold" data-target="45" data-suffix="%">0</h2>
+            <span class="text-center">Bed Capacity vs National Capacity</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="card shadow zoom-card bg-dark text-white rounded-2">
+          <div class="card-body text-center">
+            <h2 class="display-4 fw-bolder" data-target="135" data-suffix="">0</h2>
+            <span class="text-center">Member institutions</span>
+          </br />
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="card shadow zoom-card bg-dark text-white rounded-2">
+        <div class="card-body text-center">
+          <h2 class="display-4 fw-bold" data-target="68" data-suffix="%">0</h2>
+          <span class="text-center">Coverage across Zimbabwe
+            <br />
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="card shadow zoom-card bg-dark text-white rounded-2">
+        <div class="card-body text-center">
+          <h2 class="display-4 fw-bold" data-target="78" data-suffix="">0</h2>
+          <span class="text-center">Number of Programs
+            <br />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bg-light">
+  <div class="container mb-5 text-white">
+    <h1 class="display-5 fw-bold dark-font-text">Jesus lead & ZACH follows...</h1>
+    <br />
+    <div class="row">
+      <div class="col-md d-flex">
+        <div class="card bg-dark zoom-card">
+          <img src="{% static 'images/imgnurse.jpg' %}"
+               class="card-img-top"
+               alt="..." />
+          <div class="card-body">
+            <p class="card-text">Through partners we assist delivering health care services to member institutions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md d-flex">
+        <div class="card bg-dark zoom-card">
+          <img src="{% static 'images/edimg.jpg' %}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <p class="card-text">
+              We run different programs that space across the health sector to assist the MoHCC to deliver health care.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md d-flex">
+        <div class="card bg-dark zoom-card">
+          <img src="{% static 'images/ruralnurse.jpg' %}"
+               class="card-img-top"
+               alt="..." />
+          <div class="card-body">
+            <p class="card-text">
+              In crisis ZACH has always found ways to ensure that the valunerable individual get health support they desperately need.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="height: 60px;"></div>
+  </div>
+</div>
+<div class="container">
+  <h1 class="display-4 fw-bold text-center" style="color:#683566">Some of our community initiatives</h1>
+  <div class="row text-center">
+    <div class="col-md-6 p-2">
+      <h5>Community Post model</h5>
+      <iframe width="560"
+              height="315"
+              src="https://www.youtube.com/embed/cocZRnA9KXo?si=dCZQ3Vpg5sdejSZ3"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+    <div class="col-md-6 p-2">
+      <h5>Empowering Communities</h5>
+      <iframe width="560"
+              height="315"
+              src="https://www.youtube.com/embed/JYwV8DYb55k?si=gRZXfs1NkQMmoxA3&amp;controls=0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+    <div class="col-md-6 p-2">
+      <h5>ZACH in the fight against cervical cancer</h5>
+      <iframe width="560"
+              height="315"
+              src="https://www.youtube.com/embed/tdxUUKp42UU?si=vrHKTB1VrkAK2YO_&amp;controls=0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+    <div class="col-md-6 p-2">
+      <h5>Prevention of violence against women & girls</h5>
+      <iframe width="560"
+              height="315"
+              src="https://www.youtube.com/embed/ul1TBy7ELzo?si=CaJ2CgZhyiDlTIed&amp;controls=0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+    <div class="col-md-6 p-2">
+      <h5>ZACH in the fight against TB</h5>
+      <iframe width="560"
+              height="315"
+              src="https://www.youtube.com/embed/_5yrlwfdKn0?si=u0nfz3epKcKml3Hs&amp;controls=0"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+    <div class="col-md-6 p-2">
+      <h5>Awareness programs</h5>
+      <iframe width="560"
+              height="315"
+              src="https://www.youtube.com/embed/ox-vHsIZ0CA?si=Vd2DE3vrTLF3migm"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<div class="container text-center">
+  <a href="https://www.paynow.co.zw/Payment/Link/?q=c2VhcmNoPW1hY2hpbmd1cmF0JTQwemFjaC5vcmcuencmYW1vdW50PTAuMDAmcmVmZXJlbmNlPSZsPTA%3d">
+    <img src="{% static 'images/button_donate_large.svg' %}"
+         class="img-fluid mt-5"
+         alt="donate" />
+  </a>
+</div>
+<section class="py-5" style="background:#f9f5f9;">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h2 style="color:#683566;font-weight:700;">
+          Our National Reach
+        </h2>
+        <p class="text-muted">
+          ZACH member institutions are present in all
+          10 provinces of Zimbabwe. Click a province
+          to explore member facilities.
+        </p>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        {% include "websiteapp/partials/zach_map.html" %}
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <h1 class="display-4 fw-bold text-center mt-4 mb-3" style="color:#683566">News & Articles</h1>
+  <div class="row">
+    {% for article in latest_articles %}
+      <div class="col-md-4 mb-3">
+        <div class="card">
+          {% if article.image %}
+            <img src="{{ article.image.url }}"
+                 class="card-img-top"
+                 alt="{{ article.title }}" />
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <p class="card-text">{{ article.content|striptags|truncatewords:20 }}</p>
+            <a href="{% url 'news:article_detail' article.slug %}"
+               class="btn btn-primary"
+               style="background-color:#683566">Read More</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
+
+{% block inline_javascript %}
+  {{ block.super }}
+  <script>
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || "";
+      const duration = 2000;
+      const steps = 60;
+      const increment = target / steps;
+      let current = 0;
+      let step = 0;
+      const timer = setInterval(() => {
+        step++;
+        current = Math.min(Math.round(increment * step), target);
+        el.textContent = current + suffix;
+        if (step >= steps) {
+          clearInterval(timer);
+          el.textContent = target + suffix;
+        }
+      }, duration / steps);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll("[data-target]")
+            .forEach(animateCounter);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsSection = document.querySelector(".stats-section");
+    if (statsSection) observer.observe(statsSection);
+  </script>
+{% endblock inline_javascript %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block css %}
+  {{ block.super }}
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+{% endblock css %}
+
+{% block content %}
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Our Gallery</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      {% for item in images %}
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <a href="{{ item.image.url }}"
+               class="glightbox"
+               data-title="{{ item.title }}"
+               data-gallery="zach-gallery">
+              <img src="{{ item.image.url }}"
+                   class="card-img-top img-fluid"
+                   alt="{{ item.title }}"
+                   style="object-fit: cover;
+                          height: 250px" />
+            </a>
+            {% if item.title %}
+              <div class="card-body text-center">
+                <p class="card-text">{{ item.title }}</p>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% empty %}
+        <div class="col-12">
+          <p class="text-center">No images found in the gallery.</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}
+
+{% block inline_javascript %}
+  {{ block.super }}
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const lightbox = GLightbox({ selector: '.glightbox' });
+    });
+  </script>
+{% endblock inline_javascript %}

@@ -1,0 +1,216 @@
+.bg-img {
+  height: 60vh;
+  width: 100vw;
+  object-fit: cover;
+  position: absolute;
+  filter: brightness(0.6);
+  z-index: -1;
+}
+.navbar-purple {
+  background-color: #683566 !important; /* Replace with your shade of purple */
+}
+.bg-light {
+  background-color: #bc9abc !important;
+}
+.navbar-purple .nav-link,
+.navbar-purple .navbar-brand {
+  color: #faf9fa !important;
+}
+
+.navbar-purple .nav-link:hover {
+  color: #bc9abc !important;
+}
+.bg-dark {
+  background-color: #683566 !important;
+}
+.c-item {
+    height: 580px;
+
+}
+.c-img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    filter: brightness(0.8);
+}
+@media (min-width: 576px) {
+.dropdown:hover > .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+}
+.bg-img-about {
+  height: 70vh;
+  width: 100vw;
+  object-fit: cover;
+}
+.card-player {
+  aspect-ratio: 16 / 9;
+  width: fit-content;
+}
+#parallax-card {
+    transform: translateX(-50%);
+    will-change: transform;
+}
+.zoom-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.zoom-card:hover {
+    transform: scale(1.10); /* slight zoom */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); /* stronger shadow on hover */
+}
+.dark-font-text {
+  color: #683566 !important
+}
+.light-font-text {
+  color: #683566 !important
+}
+/* Add this to your style.css file or within <style> tags */
+.custom-card {
+    border: none; /* Removes the default card border */
+    overflow: hidden; /* Ensures the image and overlay respect the card's rounded corners */
+}
+
+/* Styles for the text box overlay at the bottom */
+.card-text-overlay {
+    /* The color similar to the image's text box */
+    background-color: #683566;
+    /* Purple with a slight transparency might also look good: rgba(106, 27, 154, 0.9) */
+    width: 90%; /* Adjust width of the purple box */
+    margin: 0 auto 10px; /* Center the box and add margin at the bottom */
+    border-radius: 5px; /* Add slight rounded corners to the text box */
+}
+
+/* Optional: To ensure images within the grid have a consistent height */
+.custom-img {
+    height: 300px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+/* Targets the CKEditor container in your HTML */
+.ck-content img {
+    max-width: 100%;    /* Prevents image from being wider than the card */
+    height: auto;       /* Maintains aspect ratio so images aren't squished */
+    display: block;
+    margin: 1.5rem auto; /* Centers the image and adds vertical spacing */
+    border-radius: 0.375rem; /* Matches Bootstrap's rounded-2 style */
+}
+
+/* If you want images to ALWAYS fill the full width like a banner */
+.ck-content .image-full-width img {
+    width: 100%;
+    height: 350px;      /* Or your preferred height */
+    object-fit: cover;  /* Ensures the image covers the area beautifully */
+}
+/* Leadership page
+/* Container styling */
+.organogram-container {
+    text-align: center;
+}
+
+/* Individual Leader Images */
+.leader-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+/* The Vertical Line between levels */
+.organogram-level {
+    position: relative;
+    padding-bottom: 40px; /* Space for the line */
+}
+
+/* Vertical line stem */
+.organogram-level::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #ccc;
+    top: 100%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+}
+
+/* Remove the line from the last level */
+.organogram-level:last-child::after {
+    display: none;
+}
+
+/* Horizontal connectors for multiple nodes (e.g., Managers) */
+.organogram-level .row {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* Logic for horizontal lines when multiple managers exist */
+.node {
+    position: relative;
+    padding-top: 20px;
+}
+
+/* Vertical line above each node */
+.node::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background-color: #ccc;
+}
+
+/* Horizontal line connecting siblings */
+.node:not(:only-child)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ccc;
+    left: 0;
+}
+
+/* Trim the horizontal lines for the first and last person in a row */
+.node:first-child::after {
+    width: 50%;
+    left: 50%;
+}
+
+.node:last-child::after {
+    width: 50%;
+    left: 0;
+}
+
+/* Subtle pulse animation */
+  @keyframes subtleFlash {
+    0% { opacity: 0.10; }
+    50% { opacity: 1; }
+    100% { opacity: 0.10; }
+  }
+  .whistleblower-link {
+    font-size: 0.7rem; /* Very small */
+    text-decoration: none;
+    color: #6c757d; /* Muted gray */
+    transition: color 0.10s ease;
+    animation: subtleFlash 10s infinite ease-in-out; /* The flashing effect */
+  }
+
+  .whistleblower-link:hover {
+    color: #dc3545; /* Turns red on hover to signal importance */
+    animation: none; /* Stops flashing when user focuses on it */
+    opacity: 1;
+  }
+
+  .whistleblower-container {
+    text-align: center;
+    padding: 5px 0px;
+    margin-top: 2px;
+  }

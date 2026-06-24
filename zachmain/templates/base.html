@@ -1,0 +1,277 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>
+      {% block title %}
+        ZACH
+      {% endblock title %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Official website for ZACH. Providing quality healthcare services across Zimbabwe through our network of church-related hospitals." />
+    <meta name="author" content="ZACH" />
+    <meta name="keywords" content="ZACH, Mission Hospital, Zimbabwe Healthcare, Church Hospitals, Zimbabwe Association of Church-related Hospitals">
+    <link rel="icon" href="{% static 'images/favicons/zachfavicon.ico' %}" />
+    <link rel="canonical" href="zach.org.zw/"/>
+    {% block css %}
+      <!-- Latest compiled and minified Bootstrap CSS -->
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+      <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"
+              integrity="sha384-/TgkGk7p307TH7EXJDuUlgG3Ce1UVolAOFopFekQkkXihi5u/6OCvVKyz1W+idaz"
+              crossorigin="anonymous"></script>
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
+            integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+      <!-- Bootstrap Icons CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+            rel="stylesheet" />
+      <link rel="stylesheet"
+            href="https://cdn.ckeditor.com/ckeditor5/45.0.0/ckeditor5.css" />
+      <!-- Your stuff: Third-party CSS libraries go here -->
+      <!-- This file stores project-specific CSS -->
+      <link href="{% static 'css/project.css' %}" rel="stylesheet" />
+      <link href="{% static 'css/custom.css' %}" rel="stylesheet" />
+      <link href="{% static 'css/flipcard.css' %}" rel="stylesheet" />
+    {% endblock css %}
+    <!-- Le javascript
+    ================================================== -->
+    {# Placed at the top of the document so pages load faster with defer #}
+    {% block javascript %}
+      <!-- Latest HTMX CDN -->
+      <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"
+              integrity="sha384-/TgkGk7p307TH7EXJDuUlgG3Ce1UVolAOFopFekQkkXihi5u/6OCvVKyz1W+idaz"
+              crossorigin="anonymous"></script>
+      <!-- Bootstrap JS -->
+      <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous" referrerpolicy="no-referrer">
+      </script>
+      <!-- Your stuff: Third-party javascript libraries go here -->
+      <!-- place project specific Javascript in this file -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalOrganization",
+      "name": "ZACH - Zimbabwe Association of Church-related Hospitals",
+      "alternateName": "ZACH",
+      "url": "https://zach.org.zw",
+      "logo": "https://www.zach.org.zw/staticfiles/images/zachlogoblack.png",
+      "email": "info@zach.org.zw",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+263 24 2312434/5",
+        "contactType": "enquiries"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "244 Rosedale Road, Marlborough",
+        "addressLocality": "Harare",
+        "addressCountry": "ZW"
+      }
+    }
+    </script>
+    {% endblock javascript %}
+  </head>
+  <body class="{% block bodyclass %}{% endblock bodyclass %}">
+    {% block body %}
+      <div class="bg-dark text-white py-1">
+        <div class="container d-flex justify-content-between align-items-center small">
+          <div>
+            <i class="bi bi-envelope me-2"></i> info@zach.org.zw
+            <i class="bi bi-telephone ms-3 me-2"></i> +263 24 2312434/5 / +263 242 702065
+          </div>
+          <div>
+            <a href="https://www.facebook.com/share/166VCYcLR1/"
+               class="text-white fs-4 me-1"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com/assoczach?t=7wigxxv8RwM8cBflDX1RZg&s=09"
+               class="text-white fs-4 me-1"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.linkedin.com/company/zimbabwe-association-of-church-related-hospitals/"
+               class="text-white fs-4 me-1"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.instagram.com/263zach?igsh=MXVyOWY3OXl3eHlneg=="
+               class="text-white  fs-4 me-1"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/@zach-zw5590"
+               class="text-white  fs-4 me-1"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.paynow.co.zw/Payment/Link/?q=c2VhcmNoPW1hY2hpbmd1cmF0JTQwemFjaC5vcmcuencmYW1vdW50PTAuMDAmcmVmZXJlbmNlPSZsPTA%3d">
+              <button class="btn btn-outline-light bi bi-heart" type="submit">Donate</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mb-0">
+        <nav class="navbar navbar-expand-md sticky-top navbar-dark bg-light">
+          <div class="container">
+            <button class="navbar-toggler navbar-toggler-right"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'home' %}">
+              <img src="{% static 'images/zachlogoblack.png' %}"
+                   alt="logo"
+                   width="66"
+                   height="60" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item active me-3">
+                  <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown me-3">
+                  <a class="nav-link dropdown-toggle"
+                     href="#"
+                     role="button"
+                     data-bs-toggle="dropdown"
+                     aria-expanded="false">About us</a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item" href="{% url 'websiteapp:about-us' %}">Who we are</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{% url 'websiteapp:vision' %}">Vision, Mission & Values</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{% url 'websiteapp:what-we-do' %}">What we do</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{% url 'websiteapp:leadership' %}">Our Leadership</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item me-3">
+                  <a class="nav-link" href="{% url 'programmes:programmes_page' %}">Programmes</a>
+                </li>
+                <li class="nav-item dropdown me-3">
+                  <a class="nav-link dropdown-toggle"
+                     href="#"
+                     role="button"
+                     data-bs-toggle="dropdown"
+                     aria-expanded="false">Membership</a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item" href="{% url 'membership:list' %}">List of members</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{% url 'membership:benefits' %}">Benefits</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{% url 'membership:how-to-join' %}">Become a member</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item me-3">
+                  <a class="nav-link" href="{% url 'partners:partner' %}">Partners</a>
+                </li>
+                <li class="nav-item me-3">
+                  <a class="nav-link" href="{% url 'websiteapp:contacts' %}">Contacts</a>
+                </li>
+                <li class="nav-item me-3">
+                  <a class="nav-link" href="{% url 'websiteapp:gallery' %}">Gallery</a>
+                </li>
+                <li class="nav-item me-3">
+                  <a class="nav-link" href="{% url 'news:newsletter' %}">Newsletter</a>
+                </li>
+                <li class="nav-item me-3">
+                  <a class="nav-link" href="{% url 'careers:list' %}">Careers</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="container">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-dismissible {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+              {{ message }}
+              <button type="button"
+                      class="btn-close"
+                      data-bs-dismiss="alert"
+                      aria-label="Close"></button>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      {% block main %}
+        {% block content %}
+        {% endblock content %}
+      {% endblock main %}
+    {% endblock body %}
+    <footer class="bg-dark">
+      <div class="container-fluid">
+        <div class="row align-items-center text-white text-center">
+          <div class="col-4 mt-4 mb-4 fs-6">
+            ZACH's HeadOffice
+            <br />
+            244 Rosedale Road
+            <br />
+            Marlborough, Harare
+            <br />
+            Zimbabwe
+          </div>
+          <div class="col-4 mt-4 mb-4">
+            <a href="https://www.facebook.com/share/166VCYcLR1/"
+               class="text-white me-3 fs-2"><i class="bi bi-facebook"></i></a>
+            <a href="https://x.com/assoczach?t=7wigxxv8RwM8cBflDX1RZg&s=09"
+               class="text-white me-3 fs-2"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.linkedin.com/company/zimbabwe-association-of-church-related-hospitals/"
+               class="text-white me-2 fs-2"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.instagram.com/263zach?igsh=MXVyOWY3OXl3eHlneg=="
+               class="text-white me-3 fs-2"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.youtube.com/@zach-zw5590"
+               class="text-white me-3 fs-2"><i class="bi bi-youtube"></i></a>
+          </div>
+          <div class="col-4 fs-6">
+            ZACH is registered under
+            <br />
+            Welfare organizations Act [Chapter 93]
+            <br />
+            Registration Number: W/O 38/75
+          </div>
+        </div>
+      </div>
+    </footer>
+        <div class="whistleblower-container">
+        <a href="mailto:whistleblower@zach.org.zw" class="whistleblower-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-shield-lock-fill me-1" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.8 11.8 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7 7 0 0 0 1.048-.625 11.8 11.8 0 0 0 2.517-2.453c1.678-2.195 2.461-5.513 2.465-9.99a1.54 1.54 0 0 0-1.044-1.263 63 63 0 0 0-2.887-.87C9.843.266 8.69 0 8 0m0 5a1.5 1.5 0 0 1 .5 2.915V9.5a.5.5 0 0 1-1 0V7.915A1.5 1.5 0 0 1 8 5"/>
+            </svg>
+            Confidential Whistleblower Reporting: whistleblower@zach.org.zw
+        </a>
+    </div>
+    <div class="container">
+      <footer class="d-flex flex-wrap align-items-center py-2 my-4 border-top">
+        <div class="ms-auto">
+          <p class="mb-0">
+            <small class="text-muted small">
+              © 2026 Zimbabwe Association of Church Related Hospitals
+            </small>
+          </p>
+        </div>
+      </footer>
+    </div>
+    <!-- /container -->
+    {% block modal %}
+    {% endblock modal %}
+    {% block inline_javascript %}
+      <script defer src="{% static 'js/project.js' %}"></script>
+      {% comment %}
+    Script tags with only code, no src (defer by default). To run
+    with a "defer" so that you run inline code:
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        /* Run whatever you want */
+      });
+    </script>
+      {% endcomment %}
+    {% endblock inline_javascript %}
+  </body>
+</html>
