@@ -79,7 +79,7 @@
   </head>
   <body class="{% block bodyclass %}{% endblock bodyclass %}">
     {% block body %}
-      <div class="bg-dark text-white py-1">
+      <div class="bg-dark text-white py-1 d-none d-md-block">
         <div class="container d-flex justify-content-between align-items-center small">
           <div>
             <i class="bi bi-envelope me-2"></i> info@zach.org.zw
@@ -107,82 +107,100 @@
           <div class="container">
             <button class="navbar-toggler navbar-toggler-right"
                     type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#zachNavOffcanvas"
+                    aria-controls="zachNavOffcanvas"
                     aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand" href="{% url 'home' %}">
               <img src="{% static 'images/zachlogoblack.png' %}"
                    alt="logo"
-                   width="66"
-                   height="60" />
+                   style="max-height:50px;width:auto;" />
             </a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ms-auto">
-                <li class="nav-item active me-3">
-                  <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown me-3">
-                  <a class="nav-link dropdown-toggle"
-                     href="#"
-                     role="button"
-                     data-bs-toggle="dropdown"
-                     aria-expanded="false">About us</a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="{% url 'websiteapp:about-us' %}">Who we are</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="{% url 'websiteapp:vision' %}">Vision, Mission & Values</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="{% url 'websiteapp:what-we-do' %}">What we do</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="{% url 'websiteapp:leadership' %}">Our Leadership</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item me-3">
-                  <a class="nav-link" href="{% url 'programmes:programmes_page' %}">Programmes</a>
-                </li>
-                <li class="nav-item dropdown me-3">
-                  <a class="nav-link dropdown-toggle"
-                     href="#"
-                     role="button"
-                     data-bs-toggle="dropdown"
-                     aria-expanded="false">Membership</a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="{% url 'membership:list' %}">List of members</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="{% url 'membership:benefits' %}">Benefits</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item" href="{% url 'membership:how-to-join' %}">Become a member</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item me-3">
-                  <a class="nav-link" href="{% url 'partners:partner' %}">Partners</a>
-                </li>
-                <li class="nav-item me-3">
-                  <a class="nav-link" href="{% url 'websiteapp:contacts' %}">Contacts</a>
-                </li>
-                <li class="nav-item me-3">
-                  <a class="nav-link" href="{% url 'websiteapp:gallery' %}">Gallery</a>
-                </li>
-                <li class="nav-item me-3">
-                  <a class="nav-link" href="{% url 'news:newsletter' %}">Newsletter</a>
-                </li>
-                <li class="nav-item me-3">
-                  <a class="nav-link" href="{% url 'careers:list' %}">Careers</a>
-                </li>
-              </ul>
+            <div class="offcanvas offcanvas-end"
+                 tabindex="-1"
+                 id="zachNavOffcanvas"
+                 aria-labelledby="zachNavOffcanvasLabel">
+              <div class="offcanvas-header" style="background:#683566;">
+                <img src="{% static 'images/zachlogoblack.png' %}"
+                     alt="ZACH"
+                     style="max-height:50px;width:auto;">
+                <h5 class="offcanvas-title text-white ms-2"
+                    id="zachNavOffcanvasLabel">Menu</h5>
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body" style="background:#683566;">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item active me-3">
+                    <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
+                  </li>
+                  <li class="nav-item dropdown me-3">
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">About us</a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="{% url 'websiteapp:about-us' %}">Who we are</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="{% url 'websiteapp:vision' %}">Vision, Mission & Values</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="{% url 'websiteapp:what-we-do' %}">What we do</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="{% url 'websiteapp:leadership' %}">Our Leadership</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="{% url 'programmes:programmes_page' %}">Programmes</a>
+                  </li>
+                  <li class="nav-item dropdown me-3">
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">Membership</a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="{% url 'membership:list' %}">List of members</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="{% url 'membership:benefits' %}">Benefits</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="{% url 'membership:how-to-join' %}">Become a member</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="{% url 'partners:partner' %}">Partners</a>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="{% url 'websiteapp:contacts' %}">Contacts</a>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="{% url 'websiteapp:gallery' %}">Gallery</a>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="{% url 'news:newsletter' %}">Newsletter</a>
+                  </li>
+                  <li class="nav-item me-3">
+                    <a class="nav-link" href="{% url 'careers:list' %}">Careers</a>
+                  </li>
+                </ul>
+                <div class="mt-3 d-md-none">
+                  <a href="https://www.paynow.co.zw/Payment/Link/?q=c2VhcmNoPW1hY2hpbmd1cmF0JTQwemFjaC5vcmcuencmYW1vdW50PTAuMDAmcmVmZXJlbmNlPSZsPTA%3d"
+                     class="btn btn-outline-light w-100">&#9825; Donate</a>
+                </div>
+              </div>
             </div>
           </div>
         </nav>
@@ -208,7 +226,7 @@
     <footer class="bg-dark">
       <div class="container-fluid">
         <div class="row align-items-center text-white text-center">
-          <div class="col-4 mt-4 mb-4 fs-6">
+          <div class="col-12 col-md-4 mt-4 mb-4 mb-md-0 fs-6 text-center text-md-start">
             ZACH's HeadOffice
             <br />
             244 Rosedale Road
@@ -217,19 +235,21 @@
             <br />
             Zimbabwe
           </div>
-          <div class="col-4 mt-4 mb-4">
-            <a href="https://www.facebook.com/share/166VCYcLR1/"
-               class="text-white me-3 fs-2"><i class="bi bi-facebook"></i></a>
-            <a href="https://x.com/assoczach?t=7wigxxv8RwM8cBflDX1RZg&s=09"
-               class="text-white me-3 fs-2"><i class="bi bi-twitter-x"></i></a>
-            <a href="https://www.linkedin.com/company/zimbabwe-association-of-church-related-hospitals/"
-               class="text-white me-2 fs-2"><i class="bi bi-linkedin"></i></a>
-            <a href="https://www.instagram.com/263zach?igsh=MXVyOWY3OXl3eHlneg=="
-               class="text-white me-3 fs-2"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.youtube.com/@zach-zw5590"
-               class="text-white me-3 fs-2"><i class="bi bi-youtube"></i></a>
+          <div class="col-12 col-md-4 mt-4 mb-4 mb-md-0">
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+              <a href="https://www.facebook.com/share/166VCYcLR1/"
+                 class="text-white fs-2"><i class="bi bi-facebook"></i></a>
+              <a href="https://x.com/assoczach?t=7wigxxv8RwM8cBflDX1RZg&s=09"
+                 class="text-white fs-2"><i class="bi bi-twitter-x"></i></a>
+              <a href="https://www.linkedin.com/company/zimbabwe-association-of-church-related-hospitals/"
+                 class="text-white fs-2"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.instagram.com/263zach?igsh=MXVyOWY3OXl3eHlneg=="
+                 class="text-white fs-2"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.youtube.com/@zach-zw5590"
+                 class="text-white fs-2"><i class="bi bi-youtube"></i></a>
+            </div>
           </div>
-          <div class="col-4 fs-6">
+          <div class="col-12 col-md-4 mt-4 mb-4 fs-6 text-center text-md-end text-break">
             ZACH is registered under
             <br />
             Welfare organizations Act [Chapter 93]
@@ -249,7 +269,7 @@
     </div>
     <div class="container">
       <footer class="d-flex flex-wrap align-items-center py-2 my-4 border-top">
-        <div class="ms-auto">
+        <div class="mx-auto text-center">
           <p class="mb-0">
             <small class="text-muted small">
               © 2026 Zimbabwe Association of Church Related Hospitals
