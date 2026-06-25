@@ -183,16 +183,138 @@ These live directly in the templates — not via admin:
 
 ## Deployment (cPanel Shared Hosting)
 
-> TODO — fill in after next deployment session.
+The site runs on cPanel shared hosting at zach.org.zw using
+Phusion Passenger + Python 3.11.
 
-Key files already in place:
-- `passenger_wsgi.py` — cPanel entry point with venv re-exec guard
-- `config/wsgi.py` — standard Django WSGI application
-- `config/settings/production.py` — production settings (WhiteNoise, security headers)
-- `requirements.txt` — pinned runtime deps for `pip install -r requirements.txt` on server
-- `staticfiles/` — pre-collected static files committed to git (no `collectstatic` needed on server)
+### Server details
+- cPanel user: zach
+- App root: /home/zach/zachsite/
+- Virtualenv: /home/zach/virtualenv/zachsite/3.11/
+- Python binary: /opt/alt/python311/bin/python3.11
+- Admin URL (production): https://zach.org.zw/zachmain/
 
-Python version on server must match: **3.11**
+### First-time setup
+
+**1. Open cPanel Terminal**
+Log into cPanel at https://zach.org.zw:2083
+Search for "Terminal" and open it.
+
+**2. Clone the repo**
+Go to cPanel → Git Version Control → Create
+  Clone URL: https://github.com/craigouma/ZACH-Main-Website-Django.git
+  Repository Path: zachsite
+  Repository Name: ZACH-Main-Website-Django
+
+Note: make the GitHub repo public temporarily to clone,
+then set it back to private after cloning completes.
+
+**3. Create the virtualenv**
+```bash
+/opt/alt/python311/bin/python3.11 -m venv \
+  /home/zach/virtualenv/zachsite/3.11
+source /home/zach/virtualenv/zachsite/3.11/bin/activate
+cd /home/zach/zachsite
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+**4. Create the .env file**
+```bash
+cat > /home/zach/zachsite/.env << 'EOF'
+DJANGO_SECRET_KEY=your-secret-key-here
+DJANGO_DEBUG=False
+DJANGO_ALLOWED_HOSTS=zach.org.zw,www.zach.org.zw
+DJANGO_SETTINGS_MODULE=config.settings.production
+DJANGO_ADMIN_URL=zachmain/
+DATABASE_URL=sqlite:///db.sqlite3
+EMAIL_BACKEND=django.core.mail.backends.console.EmailBackend
+EOF
+```
+
+**5. Run migrations and collect static**
+```bash
+python manage.py migrate --settings=config.settings.production
+python manage.py collectstatic --noinput \
+  --settings=config.settings.production
+```
+
+**6. Fix passenger_wsgi.py**
+```bash
+cat > /home/zach/zachsite/passenger_wsgi.py << 'EOF'
+import os
+import sys
+
+sys.path.insert(0, '/home/zach/zachsite')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings.production'
+
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+EOF
+```
+
+**7. Set .htaccess in public_html**
+```bash
+cat > /home/zach/public_html/.htaccess << 'EOF'
+PassengerEnabled on
+PassengerAppRoot /home/zach/zachsite
+PassengerBaseURI /
+PassengerPython /home/zach/virtualenv/zachsite/3.11/bin/python3.11
+EOF
+```
+
+**8. Set permissions and restart**
+```bash
+chmod 755 /home/zach/zachsite
+chmod 644 /home/zach/zachsite/Passengerfile.json
+chmod 644 /home/zach/zachsite/passenger_wsgi.py
+mkdir -p /home/zach/zachsite/tmp
+touch /home/zach/zachsite/tmp/restart.txt
+```
+
+Visit https://zach.org.zw — site should be live.
+
+---
+
+### Redeployment (after local changes)
+
+Run these steps in the cPanel Terminal every time you push
+updates from local and want to redeploy:
+
+```bash
+# 1. Activate virtualenv and go to project
+source /home/zach/virtualenv/zachsite/3.11/bin/activate
+cd /home/zach/zachsite
+
+# 2. Pull latest code
+git pull origin main
+
+# 3. Install new dependencies (only if requirements.txt changed)
+pip install -r requirements.txt
+
+# 4. Apply database migrations (only if models changed)
+python manage.py migrate --settings=config.settings.production
+
+# 5. Collect static files
+python manage.py collectstatic --noinput \
+  --settings=config.settings.production
+
+# 6. Restart Passenger
+touch /home/zach/zachsite/tmp/restart.txt
+```
+
+---
+
+### Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| Site shows "It works! Python v3.11.15" | passenger_wsgi.py has test content — re-run step 6 above |
+| Passenger error #2 (permission denied) | chmod 755 /home/zach/zachsite && chmod 644 Passengerfile.json |
+| 500 error after deploy | Run manage.py check locally first; check logs in /home/zach/logs/ |
+| Images not loading | Ensure zachmain/media/ was committed to git and pulled to server |
+| Static files (CSS/JS) not loading | Re-run collectstatic and touch tmp/restart.txt |
+| 401 Unauthorized | Check public_html/.htaccess — remove any AuthType lines |
+| Python App GUI errors | Do not use cPanel Python App GUI — use Terminal directly instead |
 
 ---
 
