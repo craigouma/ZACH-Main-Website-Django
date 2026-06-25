@@ -15,24 +15,31 @@
   <div class="row">
     {% for job in jobs %}
     <div class="col-md-6 col-lg-4 mb-4">
-      <div class="card h-100 shadow-sm border-0">
+      <div class="card h-100 shadow-sm {% if job.is_expired %}border-secondary opacity-75{% else %}border-0{% endif %}">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-start">
-            <h4 class="card-title text-primary">{{ job.title }}</h4>
+            <h4 class="card-title {% if job.is_expired %}text-secondary{% else %}text-primary{% endif %}">{{ job.title }}</h4>
+            {% if job.is_expired %}
+              <span class="badge bg-secondary ms-2 flex-shrink-0">Expired</span>
+            {% endif %}
           </div>
           <h6 class="card-subtitle mb-2 text-muted">
             <i class="fas fa-map-marker-alt"></i> {{ job.location }}
           </h6>
-          
           <p class="card-text mt-3 text-secondary">
             {{ job.description|truncatewords:25 }}
           </p>
         </div>
-        
         <div class="card-footer bg-white border-top-0 pb-3">
           <div class="d-flex justify-content-between align-items-center">
-            <small class="text-muted">Closes: {{ job.closing_date|date:"M d, Y" }}</small>
-            <a href="{% url 'careers:detail' job.pk %}" class="btn btn-outline-primary btn-sm">
+            <small class="text-muted">
+              {% if job.is_expired %}
+                Closed: {{ job.closing_date|date:"M d, Y" }}
+              {% else %}
+                Closes: {{ job.closing_date|date:"M d, Y" }}
+              {% endif %}
+            </small>
+            <a href="{% url 'careers:detail' job.pk %}" class="btn btn-sm {% if job.is_expired %}btn-outline-secondary{% else %}btn-outline-primary{% endif %}">
               View Details
             </a>
           </div>

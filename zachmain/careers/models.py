@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from model_utils.models import TimeStampedModel
 
 class JobListing(TimeStampedModel):
@@ -20,6 +21,9 @@ class JobListing(TimeStampedModel):
     class Meta:
         ordering = ["-created"] # Newest adverts first
 
+    @property
+    def is_expired(self):
+        return timezone.now() > self.closing_date
+
     def __str__(self):
         return self.title
-# Create your models here.
