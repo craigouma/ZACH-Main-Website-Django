@@ -3,24 +3,38 @@
 {% load static %}
 
 {% block content %}
-  <div class="container mb-5">
-    <h2 class="display-4 fw-bolder mb-5 mt-5 text-center">News and Articles</h2>
+  <div class="container py-5">
+    <h2 class="display-4 fw-bolder mb-5 text-center" style="color:#683566;">News and Articles</h2>
     {% for article in latest_articles %}
-      <div class="card mb-5 shadow-lg">
-        <div class="row g-4">
-          <div class="col-md-4 mb-5">
-            {% if article.image %}<img src="{{ article.image.url }}" class="img-fluid"  alt="img" />{% endif %}
+      <div class="card mb-4 shadow-sm border-0 overflow-hidden">
+        <div class="row g-0">
+          <div class="col-md-4">
+            {% if article.image %}
+              <img src="{{ article.image.url }}"
+                   alt="{{ article.title }}"
+                   class="news-card-img" />
+            {% else %}
+              <div class="news-card-placeholder">
+                <img src="{% static 'images/zachlogoblack.png' %}"
+                     alt="ZACH"
+                     style="max-height:64px;width:auto;opacity:0.55;filter:brightness(10);" />
+              </div>
+            {% endif %}
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{ article.title }}</h5>
-              <p class="card-text">{{ article.content|striptags|truncatewords:150 }}</p>
-              <p class="card-text">
-                <small class="text-body-secondary">Published: {{ article.created_at }}</small>
+          <div class="col-md-8 d-flex flex-column">
+            <div class="card-body flex-grow-1">
+              <h4 class="card-title fw-bold mb-1">{{ article.title }}</h4>
+              <small class="text-muted d-block mb-3">
+                Published: {{ article.created_at|date:"j M Y" }}
+              </small>
+              <p class="card-text text-secondary">
+                {{ article.content|striptags|truncatewords:40 }}
               </p>
+            </div>
+            <div class="card-footer bg-white border-0 pb-3">
               <a href="{% url 'news:article_detail' article.slug %}"
-                 class="btn btn-primary"
-                 style="background-color:#683566">Read More</a>
+                 class="btn btn-sm"
+                 style="background-color:#683566;color:#fff;">Read More</a>
             </div>
           </div>
         </div>
