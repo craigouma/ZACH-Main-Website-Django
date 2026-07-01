@@ -11,7 +11,7 @@ def programme_list(request):
     The programmes are fetched from the database and ordered by
     active status (active first) and then by name.
     """
-    programmes = Programme.objects.all().order_by("-is_active", "name")
+    programmes = Programme.objects.filter(is_active=True).order_by("name")
     context = {
         "programmes": programmes,
     }
